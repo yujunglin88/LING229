@@ -1,0 +1,2 @@
+# ignore the __pycache__ foler which is created by python
+__pycache__/
