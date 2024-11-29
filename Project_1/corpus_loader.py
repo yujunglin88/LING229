@@ -1,26 +1,26 @@
 import os
 
-def load_corpus(corpus_path):
-    """ Load the corpus from the file system
+def load_text(text_path):
+    """ Load the text from the file system
     Args:
-        corpus_path: str: path to the corpus file
+        text_path: str: path to the corpus file
     Returns:
-        corpus: str: the corpus as a string
+        text: str: the corpus as a string
     """
-    with open(corpus_path, 'r') as file:
-        corpus = file.read()
-    return corpus
+    with open(text_path, 'r') as file:
+        text = file.read()
+    return text
 
-def load_all_corpora(corpus_dir):
-    """ Load all corpora from a directory
+def load_corpus(corpus_dir):
+    """ Load all corpus from a directory
     Args:
-        corpus_dir: str: path to the directory containing the corpora
+        corpus_dir: str: path to the directory containing the courpus
     Returns:
-        corpora: dict: a dictionary of corpora, where the key is the name of the corpus and the value is the corpus as a string
+        corpus: dict: a dictionary of courpus, where the key is the name of the corpus and the value is the corpus as a string
     """
-    corpora = {}
+    corpus = {}
     for file in os.listdir(corpus_dir):
         if file.endswith('.txt'):
             corpus_name = file.split('.')[0]
-            corpora[corpus_name] = load_corpus(os.path.join(corpus_dir, file))
-    return corpora
+            corpus[corpus_name] = load_text(os.path.join(corpus_dir, file))
+    return corpus
