@@ -1,0 +1,5 @@
+# ignore the __pycache__ foler which is created by python
+__pycache__/
+
+# ignore the .env file which is used to store the environment variables
+.env
