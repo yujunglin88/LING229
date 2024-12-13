@@ -9,7 +9,7 @@ def load_text(text_path) -> str:
     Returns:
         text: str: the corpus as a string
     """
-    with open(text_path, 'r') as file:
+    with open(text_path, 'r', encoding="utf8") as file:
         text = file.read()
     return text
 
