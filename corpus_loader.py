@@ -30,3 +30,12 @@ def load_corpus(corpus_dir) -> (PlaintextCorpusReader, dict, pd.DataFrame): # ty
             corpus_dict[corpus_name] = load_text(os.path.join(corpus_dir, file))
     corpus_df = pd.DataFrame(corpus_dict.items(), columns=['filename', 'text'])
     return corpus, corpus_dict, corpus_df
+
+def combine_text(directory, savedir):
+    text = ''
+    for filename in os.listdir(directory):
+        if filename.endswith(".txt"):
+            text += load_text(directory+filename)
+    # save the combined text
+    with open(savedir+directory+'.txt', 'w', encoding="utf8") as file:
+        file.write(text)
